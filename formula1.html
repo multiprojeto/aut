@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula 1</title>
+    <link rel="stylesheet" href="formula1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Barra de Navegação -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"> <a href="index.html"> Speed.com </a></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#historia">Fórmula 1</a></li>
+                <li><a href="#sobre">Moto GP</a></li>
+                <li><a href="#contato">Air Race</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seções do Website -->
+    <section id="inicio" class="section">
+        <h1>  O QUE É FÓRMULA 1?  </h1>
+        <br>
+        <p> É a principal categoria do automobilismo, criada em 1950 e regulamentada pela FIA (Federação Internacional de Automobilismo). A fórmula 1 se diferencia pelo fato de que os participantes montam seus próprios carros seguindo uma série de regras, fazendo com que as equipes foquem no design e na escolha de bons pilotos, já que não podem se beneficiar com outras coisas, pois o regulamento determina limites, como peso e tamanho dos carros.
+</p>
+        
+    </section>
+
+    <section id="historia" class="section">
+        <h1> COMO ACONTECE? </h1>
+        <p> Cada equipe possui dois pilotos competindo durante a corrida, sendo que a atração dura três dias, no primeiro dia que é na sexta feira, acontecem os treinos livres, já no sábado ocorre a qualificação dos pilotos para saberem a posição no grid (largada), esse treino é separado em três fases a Q1, Q2 e Q3. No Q1. Cinco pilotos são eliminados no Q1 e no Q2, enquanto o Q3 define o pole-position (primeiro no grid) e os dez primeiros colocados. Após tudo isso, no domingo a corrida principal acontece chamada de GP ou grande prêmio. </p>
+    </section>
+
+    <section id="sobre" class="section">
+        <h1> ATUAL CAMPEÃO DA FÓRMULA 1 </h1>
+        <br>
+        <h2> PILOTO</h2>
+        <p>  Max Verstappen, Países Baixos </p>
+        <img src="max verstappen.jpg">
+        <h2> EQUIPE </h2>
+        <P> Red Bull </P>
+    </section>
+
+    <section id="contato" class="section">
+        <h1> CARRO UTILIZADO NA FÓRMULA 1 </h1>
+        <h3> Red Bull Racing RB20 </h3>
+        <img src="RB20.jpg">
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Speed.com. Todos os direitos reservados.</p>
+        <p>Made with &#x2764;&#xfe0f; by Alexandre Rizzo, Giovana Leung and Isaac Speltz</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Scroll Suave
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Destacar o link ativo na barra de navegação ao rolar a página
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Efeito de flutuação nos botões de link
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(-5px)"; // Flutua para cima
+                link.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(0px)"; // Retorna ao normal
+                link.style.boxShadow = "none";
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

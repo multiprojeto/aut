@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto GP</title>
+    <link rel="stylesheet" href="motogp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Barra de Navegação -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"> <a href="index.html"> Speed.com </a></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#historia">Fórmula 1</a></li>
+                <li><a href="#sobre">Moto GP</a></li>
+                <li><a href="#contato">Air Race</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seções do Website -->
+    <section id="inicio" class="section">
+        <h1>  O QUE É O MOTO GP?  </h1>
+        <br>
+        <p> MotoGP, ou Moto Grand Prix, é a principal categoria do Campeonato Mundial de Motovelocidade e um dos campeonatos mais antigos do mundo em esportes motorizados, com seu início em 1949. As corridas ocorrem simultaneamente às categorias Moto3, que desde 2012 substituiu a classe de 125cc, e Moto2, que assumiu a categoria de 250cc em 2010.
+<br>
+<br>
+        A categoria MotoGP foi estabelecida em 2002 para substituir a antiga classe de 500cc. Desde então, até a temporada de 2006, a cilindrada passou por diversas mudanças, sendo atualmente de 1000cc. Os direitos de transmissão do campeonato completo, que abrange MotoGP, Moto2 e Moto3, são atualmente detidos pelos grupos Fox Sports e ESPN, pertencentes à Disney.
+
+
+
+</p>
+    </section>
+
+    <section id="historia" class="section">
+        <h1> COMO ACONTECEM? </h1>
+        <p> No MotoGP, o grid de largada é organizado em três colunas, seguindo o padrão das principais categorias do automobilismo. As posições de partida são determinadas pelas voltas mais rápidas registradas durante os treinos classificatórios.
+<br>
+<br>
+        As corridas são realizadas do início ao fim, sem paradas nos boxes para troca de pneus ou reabastecimento. Os pilotos precisam manter um ritmo constante e administrar seus recursos ao longo de toda a prova.
+<br>
+<br>
+        Se a corrida for afetada pela chuva, uma bandeira branca é exibida, sinalizando que os pilotos podem ir aos boxes para trocar suas motocicletas por outras iguais, mas equipadas com pneus apropriados para condições de pista molhada ou intermediária, em vez dos pneus slicks usados em clima seco.
+<br>
+<br>
+        Neste campeonato, até o 15º colocado ganha pontos em cada corrida. O sistema de pontuação é o seguinte: o vencedor conquista 25 pontos, o segundo lugar ganha 20 pontos, o terceiro recebe 16 pontos, e assim sucessivamente, até o 15º, que recebe 1 ponto. </p>
+    </section>
+
+    <section id="sobre" class="section">
+        <h1> ATUAL CAMPEÃO DO MOTO GP </h1>
+        <br>
+        <h2> PILOTO</h2>
+        <p>  Francesco Bagnaia, Itália </p>
+        <img src="Pecco_Bagnaia_2021.jpg">
+        <h2> EQUIPE </h2>
+        <P> Ducati Corse </P>
+    </section>
+
+    <section id="contato" class="section">
+        <h1> MOTOS UTILIZADAS NO MOTO GP (1000cc) </h1>
+        <h3> Ducati </h3>
+        <img src="ducatimoto.jpg">
+        <h3> Aprilia </h3>
+        <img src="apriliamoto.jpg">
+        <h3> Honda </h3>
+        <img src="hondamoto.jpg">
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Speed.com. Todos os direitos reservados.</p>
+        <p>Made with &#x2764;&#xfe0f; by Alexandre Rizzo, Giovana Leung and Isaac Speltz</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Scroll Suave
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Destacar o link ativo na barra de navegação ao rolar a página
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Efeito de flutuação nos botões de link
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(-5px)"; // Flutua para cima
+                link.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(0px)"; // Retorna ao normal
+                link.style.boxShadow = "none";
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

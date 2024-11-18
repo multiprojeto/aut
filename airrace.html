@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Bull Air Races</title>
+    <link rel="stylesheet" href="airrace.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Barra de Navegação -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"> <a href="index.html"> Speed.com </a></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#historia">Fórmula 1</a></li>
+                <li><a href="#sobre">Moto GP</a></li>
+                <li><a href="#contato">Air Race</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seções do Website -->
+    <section id="inicio" class="section">
+        <h1>  O QUE É A AIR RACE?  </h1>
+        <br>
+        <p> A Air Race é um esporte que utiliza pequenos aviões acrobáticos e é praticado globalmente. 
+        Embora se assemelhe ao automobilismo, não recebe tanta atenção da mídia. Muitas pessoas ainda não
+         conhecem, mas aqueles que já assistiram garantem que a experiência é inesquecível. Um dos eventos
+          mais renomados desse esporte é a Red Bull Air Race World Series.</p>
+    </section>
+
+    <section id="historia" class="section">
+        <h1> COMO ACONTECEM? </h1>
+        <p> Os concorrentes devem percorrer um circuito aéreo com obstáculos desafiadores e no menor tempo possível.
+        Para isso, eles devem passar por grandes pilões especiais, ou air gates, enquanto lutam, ou melhor, voam contra o tempo.
+         Nas corridas, atualmente 14 pilotos competem uns contra os outros. O vencedor da corrida é o competidor que realiza o melhor
+          tempo depois de duas voltas no mesmo circuito. Os pilotos competem em um circuito torcido com cinco grupos de obstáculos especialmente 
+          erguidos do pilão do spinnaker. Voar com atitudes contras as regras ocasionam desqualificação ou acréscimo ao tempo de voo. Os seis primeiros 
+           pilotos de cada etapa do Air Race ganham de 6 a 1 ponto, ganhando o vencedor 6 pontos e o sexto colocado 1 ponto. O piloto que tiver mais pontos 
+           no fim da temporada se torna o campeão mundial do Red Bull Air Race. </p>
+    </section>
+
+    <section id="sobre" class="section">
+        <h1> ATUAIS CAMPEÕES DAS AIR RACES </h1>
+        <br>
+        <h2> MASTER CLASS (2018)</h2>
+        <p>  Martin Šonka, República Tcheca </p>
+        <img src="martin-sonka-san-diego-portrait.jpg">
+        <h2> CHALLENGER CLASS (2018) </h2>
+        <P> Luke Czepiela, Polônia </P>
+        <img src="pilot-lukasz-czepiela-istanbul-2019.jpg">
+    </section>
+
+    <section id="contato" class="section">
+        <h1> AVIÕES UTILIZADOS PELA RED BULL </h1>
+        <h3> Zivko Edge 540 (Made in USA - Zivko Aeronautics) </h3>
+        <img src="Zivko_Edge_540_at_Red_Bull_Air_Race_on_Langley_Park_Monty-1.jpg">
+        <h3> MX2 (Made in Australia - MX Aircraft Company) </h3>
+        <img src="MX2taxi.jpg">
+        <h3> Extra EA-300 (Hergestellt In Deutschland - Extra Aircraft) </h3>
+        <img src="Aircraft.racing.arp.jpg">
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Speed.com. Todos os direitos reservados.</p>
+        <p>Made with &#x2764;&#xfe0f; by Alexandre Rizzo, Giovana Leung and Isaac Speltz</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Scroll Suave
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Destacar o link ativo na barra de navegação ao rolar a página
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Efeito de flutuação nos botões de link
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(-5px)"; // Flutua para cima
+                link.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.transition = "transform 0.3s ease";
+                link.style.transform = "translateY(0px)"; // Retorna ao normal
+                link.style.boxShadow = "none";
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>
